@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninjas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- Home button that will redirect to 'localhost:5000/dojos' -->
+    <div class="d-flex justify-content-end m-5">
+        <a class ="btn btn-success" href ="/" role="button">Home</a>
+    </div>
+
+    <div class=" container d-flex justify-content-around align-items-center mt-5">
+        <form action="/create/ninja" method="POST" class="flex-column bg-dark text-warning p-3">
+            <h2 class="text-light text-center">New Ninja</h2>
+            <div class="form-group">
+                <label for="formFile" class="form-label">Dojo:</label>
+                <select name="dojo_id">
+                <!-- Need to create an option list for the user to select a dojo. -->
+                <!-- Note that we are passing the dojo id into the value -->
+                    {% for dojo in all_dojos %}
+                    <option value="{{dojo.id}}">{{dojo.name}}</option>
+                    {% endfor %}
+                </select>
+                    
+            </div>
+            <div class="form-group">
+                <label for="formFile" class="form-label">First Name</label>
+                <input class="form-control" type="text" name="first_name">
+            </div>
+            <div class="form-group">
+                <label for="formFile" class="form-label">Last Name</label>
+                <input class="form-control" type="text" name="last_name">
+            </div>
+            <div class="form-group">
+                <label for="formFile" class="form-label">Age</label>
+                <input class="form-control" type="text" name="age">
+            </div>
+            <div class ="form-group mt-3">
+                <button class="btn btn-primary">Add Ninja</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

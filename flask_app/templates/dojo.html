@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos and Ninjas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- Home button that will redirect to 'localhost:5000/dojos' -->
+    <div class="d-flex justify-content-end m-5">
+        <a class ="btn btn-success" href ="/" role="button">Home</a>
+    </div>
+
+    <div class=" container d-flex justify-content-around align-items-center mt-5">
+        <form action="/create/dojo" method="POST" class="flex-column bg-dark text-warning p-3" style="height: 220px;">
+            <h2 class="text-light text-center">New Dojo</h2>
+            <label class="form-label mb-3">Name:</label>
+            <input type="text" class="form-control mb-3" name="name" placeholder="name">
+            <button class="btn btn-primary mb-3">Add Dojo</button>
+        </form>
+
+
+        <div class="card flex-column bg-dark text-warning  text-center p-3 m-3" style="width:18rem;">
+            <h2 class="text-light">All Dojos</h2>
+            {%for each_dojo in all_dojos %}
+            <div>
+                <a href="/dojos/{{each_dojo.id}}" class="text-warning">{{each_dojo.name}}</a>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+<!-- Add Ninja button that will redirect to 'localhost:5000/dojos' -->
+<div class="d-flex justify-content-start m-5">
+    <a class ="btn btn-warning" href ="/ninjas" role="button">Add Ninja</a>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
